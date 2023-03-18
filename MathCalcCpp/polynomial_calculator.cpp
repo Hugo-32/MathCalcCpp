@@ -1,8 +1,20 @@
 #include <iostream>
 #include "polynomial_calculator.h"
 #include <locale>
-
 using namespace std;
+
+void div_polynominals() // деление многочленов в столбик // Меркулов
+{}
+void add_polynominals() // сложение многочленов // Меркулов
+{}
+void subtract_polynominals() // вычитание многочленов // Меркулов
+{}
+void multiply_polynominals() // умножение многочленов // Меркулов
+{}
+void multiply_polynominals_by_num() // умножение многочлена на число // Меркулов
+{}
+void calculate_derivative() // вычисление производной от многочлена // Меркулов
+{}
 
 void menuPolinom() // Меркулов
 {
@@ -32,16 +44,3 @@ void menuPolinom() // Меркулов
         }
     } while (n != 0);
 }
-
-void div_polynominals() // деление многочленов в столбик // Меркулов
-{}
-void add_polynominals() // сложение многочленов // Меркулов
-{}
-void subtract_polynominals() // вычитание многочленов // Меркулов
-{}
-void mulitply_polynominals() // умножение многочленов // Меркулов
-{}
-void multiply_polynominals_by_num() // умножение многочлена на число // Меркулов
-{}
-void calculate_derivative() // вычисление производной от многочлена // Меркулов
-{}
