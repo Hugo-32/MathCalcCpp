@@ -13,7 +13,6 @@ int main() // Васильев
 	setlocale(LC_ALL, "Rus");
 	int choice;
 
-	int m;
 	do
 	{
 		cout << "1. Матричный калькулятор" << endl;
