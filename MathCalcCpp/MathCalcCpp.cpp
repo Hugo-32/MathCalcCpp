@@ -11,7 +11,6 @@ using namespace std;
 int main() // Васильев
 {
 	setlocale(LC_ALL, "Rus");
-	int testForGithub;
 	int choice;
 
 	do
