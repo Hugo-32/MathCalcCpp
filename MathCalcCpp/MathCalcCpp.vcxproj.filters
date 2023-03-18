@@ -27,7 +27,7 @@
     <ClCompile Include="matrix.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="polynimial_calculator.cpp">
+    <ClCompile Include="polynomial_calculator.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="theoryFunctions.cpp">

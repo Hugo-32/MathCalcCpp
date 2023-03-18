@@ -131,7 +131,7 @@
     <ClCompile Include="drobs.cpp" />
     <ClCompile Include="MathCalcCpp.cpp" />
     <ClCompile Include="matrix.cpp" />
-    <ClCompile Include="polynimial_calculator.cpp" />
+    <ClCompile Include="polynomial_calculator.cpp" />
     <ClCompile Include="theoryFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
