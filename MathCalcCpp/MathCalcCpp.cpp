@@ -5,10 +5,11 @@
 #include "polynomial_calculator.h"
 #include "matrix.h"
 #include "drobs.h"
+#include "Function.h"
 
 using namespace std;
 
-int main() // Васильев
+int main(int argc, char** argv) // Васильев
 {
 	setlocale(LC_ALL, "Rus");
 	int choice;
@@ -43,6 +44,7 @@ int main() // Васильев
 			menuDrobs();
 			break;
 		case 6:
+			Function();
 			break;
 		case 0:
 			cout << "Выход из программы." << endl;
