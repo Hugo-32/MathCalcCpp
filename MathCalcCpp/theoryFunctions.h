@@ -1,6 +1,9 @@
-#pragma once
+//
+//  theoryFunctions.cpp
+//  Васильев А.Я.
+//
 
 void menuProbability();
 void calculateProbability();
-void calculateVariance();
-void calculateMean();
+double calculateVariance(int* arr, int n);
+double calculateMean(int *arr, int n);
