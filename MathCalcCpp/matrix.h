@@ -1,16 +1,21 @@
-#pragma once
+//
+//  matrix.h
+//  Цопин Е.О.
+//
+//
+//
 
 struct Matrix {
     int n;
     int m;
-    double* matrix;
+    double matrix[100][100];
 };
 
 void matrixMenu();
 
 
 void getMatrix(Matrix* a);
-void printMatrix(Matrix b);
+void printMatrix(Matrix a);
 
 
 
@@ -23,3 +28,4 @@ void matrixNumberSubstraction();
 void matrixtrans();
 void matrixReverse();
 void matrixD();
+double findD(Matrix a);
