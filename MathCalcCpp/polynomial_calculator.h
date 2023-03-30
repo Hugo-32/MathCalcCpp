@@ -1,3 +1,12 @@
-#pragma once
+//
+//  polynomial_calculator.h
+//  Меркулов Н.С.
+//
 
-void menuPolinom();
+#pragma once
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void menuPolynomial();
