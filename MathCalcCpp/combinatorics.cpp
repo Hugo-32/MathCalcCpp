@@ -1,10 +1,15 @@
+//
+//  combinatorics.cpp
+//  Авдеенко Илья
+//
+
 #include <iostream>
 #include <locale>
 #include "combinatorics.h"
 
 using namespace std;
 
-long long PermutationWithRep(int n, int k) { // Авдеенко
+long long PermutationWithRep(int n, int k) { 
     long long result = 1;
     for (int i = 0; i < k; i++) {
         result *= n;
@@ -12,7 +17,7 @@ long long PermutationWithRep(int n, int k) { // Авдеенко
     return result;
 }
 
-long long PermutationWithoutRep(int n, int k) { // Авдеенко
+long long PermutationWithoutRep(int n, int k) { 
     long long result = 1;
     for (int i = 0; i < k; i++) {
         result *= (n - i);
@@ -20,7 +25,7 @@ long long PermutationWithoutRep(int n, int k) { // Авдеенко
     return result;
 }
 
-long long CombinationWithRep(int n, int k) { // Авдеенко
+long long CombinationWithRep(int n, int k) { 
     long long result = 1;
     for (int i = 1; i <= k; i++) {
         result *= (n + i - 1);
@@ -29,7 +34,7 @@ long long CombinationWithRep(int n, int k) { // Авдеенко
     return result;
 }
 
-long long CombinationWithoutRep(int n, int k) { // Авдеенко
+long long CombinationWithoutRep(int n, int k) { 
     long long result = 1;
     for (int i = 1; i <= k; i++) {
         result *= (n - k + i);
@@ -38,7 +43,7 @@ long long CombinationWithoutRep(int n, int k) { // Авдеенко
     return result;
 }
 
-long long RepeatedCombination(int n) { // Авдеенко
+long long RepeatedCombination(int n) { 
     long long result = 1;
     for (int i = 1; i <= n; i++) {
         result *= i;
@@ -46,7 +51,7 @@ long long RepeatedCombination(int n) { // Авдеенко
     return result;
 }
 
-void menuComb() { // Авдеенко
+void menuComb() { 
     setlocale(LC_ALL, "RUS");
     int choice, n, k;
     system("cls");
@@ -57,7 +62,9 @@ void menuComb() { // Авдеенко
         cout << "3. Сочетание с повторениями" << endl;
         cout << "4. Сочетание без повторений" << endl;
         cout << "5. Перестановки" << endl;
-        cout << "0. Выход" << endl;
+        cout << "0. Выход в главное меню";
+        cout << endl;
+        cout << endl << "Выберите пункт меню: ";
         cin >> choice;
 
         switch (choice) {

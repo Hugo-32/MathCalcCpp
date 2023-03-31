@@ -1,4 +1,7 @@
-#pragma once
+//
+//  combinatorics.cpp
+//  Авдеенко Илья
+//
 
 void menuComb();
 void PermutationWithRep();

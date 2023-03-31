@@ -45,7 +45,7 @@ void menuProbability()
 				cout << "Введите элемент " << i+1 << ": ";
 				cin >> *(arr + i);
 			}
-			cout << "Диспрерсия: " << calculateVariance(arr, n) << endl << endl;
+			cout << "Дисперсия: " << calculateVariance(arr, n) << endl << endl;
 			break;
 		case 3:
 			system("cls");
