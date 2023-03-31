@@ -55,7 +55,9 @@ int main(int argc, char** argv)
 			cout << "Выход из программы." << endl;
 			break;
 		default:
-			cout << "Ошибка: неверный пункт меню." << endl;
+			system("cls");
+			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
+			break;
 		}
 	} while (choice != 0);
 	{

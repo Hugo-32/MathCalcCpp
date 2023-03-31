@@ -1,6 +1,6 @@
 //
 //  polynomial_calculator.h
-//  Меркулов Н.С.
+//  Меркулов Николай
 //
 
 #pragma once

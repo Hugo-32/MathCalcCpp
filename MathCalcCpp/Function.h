@@ -1,4 +1,9 @@
-#pragma once
+//
+//  Functions.h
+//  Боблак Кирилл 
+//
+
+
 #include <iostream>
 #include <locale>
 #include <SDL.h>

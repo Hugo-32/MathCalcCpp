@@ -325,36 +325,46 @@ void matrixMenu() {
         switch (c)
         {
         case 1:
+            system("cls");
             matrixAddition();
             break;
         case 2:
+            system("cls");
             matrixSubstruction();
             break;
         case 3:
+            system("cls");
             matrixMultiplication();
             break;
         case 4:
+            system("cls");
             matrixNumberMultiplication();
             break;
         case 5:
+            system("cls");
             matrixNumberAddition();
             break;
         case 6:
+            system("cls");
             matrixNumberSubstraction();
             break;
         case 7:
+            system("cls");
             matrixTrans();
             break;
         case 8:
+            system("cls");
             matrixReverse();
             break;
         case 9:
+            system("cls");
             matrixD();
             break;
         case 0:
             break;
         default:
-            std::cout << "\nОшибка: неверный пункт меню. Попробуйте ещё раз!\n";
+            system("cls");
+            std::cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!\n\n";
             break;
         } 
     } while (c != 0);

@@ -32,10 +32,11 @@ void menuProbability()
 		switch (choice)
 		{
 		case 1:
+			system("cls");
 			calculateProbability();
 			break;
 		case 2:
-			cout << endl;
+			system("cls");
 			cout << "Введите размер массива: ";
 			cin >> n;
 			cout << "Введите элементы, которые буду входить в данный массив" << endl;
@@ -44,10 +45,10 @@ void menuProbability()
 				cout << "Введите элемент " << i+1 << ": ";
 				cin >> *(arr + i);
 			}
-			cout << "Диспрерсия: " << calculateVariance(arr, n) << endl;;
+			cout << "Диспрерсия: " << calculateVariance(arr, n) << endl << endl;
 			break;
 		case 3:
-			cout << endl;
+			system("cls");
 			cout << "Введите размер массива: ";
 			cin >> n;
 			cout << "Введите элементы, которые буду входить в данный массив: " << endl;
@@ -56,12 +57,13 @@ void menuProbability()
 				cout << "Введите элемент " << i + 1 << ": ";
 				cin >> *(arr + i);
 			}
-			cout << "Математическое ожидание: " << calculateMean(arr, n) << endl;
+			cout << "Математическое ожидание: " << calculateMean(arr, n) << endl << endl;
 			break;
 		case 0:
 			break;
 		default:
-			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl;
+			system("cls");
+			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
 			break;
 		}
 	} while (choice != 0);
@@ -73,7 +75,6 @@ void menuProbability()
 void calculateProbability() 
 {
 	double m, n, p, q;
-	cout << endl;
 	cout << "Введите значение для m: ";
 	cin >> m;
 	cout << "Введите значение для n: ";
@@ -86,7 +87,7 @@ void calculateProbability()
 	p = m / n;
 	q = 1 - p;
 	cout << "Вероятность: " << p << endl;
-	cout << "Дополнительная вероятность: " << q << endl;
+	cout << "Дополнительная вероятность: " << q << endl << endl;
 }
 double calculateVariance(int *arr, int n) 
 {

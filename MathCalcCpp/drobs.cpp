@@ -38,7 +38,8 @@ void menuDrobs()
 		case 6: {Sokr(); break; }
 		case 7: {DesDrob(); break; }
 		case 0: { break; }
-		default: 
+		default:
+			system("cls");
 			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
 			break;
 		}

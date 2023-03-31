@@ -1,6 +1,6 @@
 //
 //  polynomial_calculator.cpp
-//  Меркулов Н.С.
+//  Меркулов Николай
 //
 
 #include "polynomial_calculator.h"
