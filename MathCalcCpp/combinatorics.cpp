@@ -4,10 +4,52 @@
 
 using namespace std;
 
+long long PermutationWithRep(int n, int k) { // Авдеенко
+    long long result = 1;
+    for (int i = 0; i < k; i++) {
+        result *= n;
+    }
+    return result;
+}
+
+long long PermutationWithoutRep(int n, int k) { // Авдеенко
+    long long result = 1;
+    for (int i = 0; i < k; i++) {
+        result *= (n - i);
+    }
+    return result;
+}
+
+long long CombinationWithRep(int n, int k) { // Авдеенко
+    long long result = 1;
+    for (int i = 1; i <= k; i++) {
+        result *= (n + i - 1);
+        result /= i;
+    }
+    return result;
+}
+
+long long CombinationWithoutRep(int n, int k) { // Авдеенко
+    long long result = 1;
+    for (int i = 1; i <= k; i++) {
+        result *= (n - k + i);
+        result /= i;
+    }
+    return result;
+}
+
+long long RepeatedCombination(int n) { // Авдеенко
+    long long result = 1;
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+
 void menuComb() { // Авдеенко
     setlocale(LC_ALL, "RUS");
-    int choice;
-
+    int choice, n, k;
+    system("cls");
     do {
         cout << "Введите номер фнукции, которую хотите использовать" << endl;
         cout << "1. Размещение с повторениями" << endl;
@@ -20,51 +62,111 @@ void menuComb() { // Авдеенко
 
         switch (choice) {
         case 1: {
-            PermutationWithRep();
+            system("cls");
+            do {
+                cout << "Введите количество элементов, из которых мы выбираем: ";
+                cin >> n;
+                if (n <= 0) {
+                    cout << "Ошибка: количество элементов должно быть положительным числом. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (n <= 0);
+
+            do {
+                cout << "Введите количество элементов в каждом размещении: ";
+                cin >> k;
+                if (k <= 0) {
+                    cout << "Ошибка: количество элементов в каждом размещении должно быть положительным числом. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (k <= 0);
+
+            cout << "Количество размещений с повторениями: " << PermutationWithRep(n, k) << endl << endl;
             break;
         }
         case 2: {
-            PermutationmWithoutRep();
+            system("cls");
+            do {
+                cout << "Введите количество элементов, из которых мы выбираем: ";
+                cin >> n;
+                if (n <= 0) {
+                    cout << "Ошибка: количество элементов должно быть положительным числом. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (n <= 0);
+
+            do {
+                cout << "Введите количество элементов в каждом размещении: ";
+                cin >> k;
+                if (k <= 0 || k > n) {
+                    cout << "Ошибка: количество элементов в каждом размещении должно быть положительным числом и не больше, чем общее количество элементов. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (k <= 0 || k > n);
+
+            cout << "Количество размещений без повторений: " << PermutationWithoutRep(n, k) << endl << endl;
             break;
         }
         case 3: {
-            CombinationWithRep();
+            system("cls");
+            do {
+                cout << "Введите количество элементов, из которых мы выбираем: ";
+                cin >> n;
+                if (n <= 0) {
+                    cout << "Ошибка: количество элементов должно быть положительным числом. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (n <= 0);
+
+            do {
+                cout << "Введите количество элементов в каждом сочетании: ";
+                cin >> k;
+                if (k <= 0) {
+                    cout << "Ошибка: количество элементов в каждом сочетании должно быть положительным числом. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (k <= 0);
+
+            cout << "Количество сочетаний с повторениями: " << CombinationWithRep(n, k) << endl << endl;
             break;
         }
         case 4: {
-            CombinationWithoutRep();
+            system("cls");
+            do {
+                cout << "Введите количество элементов, из которых мы выбираем: ";
+                cin >> n;
+                if (n <= 0) {
+                    cout << "Ошибка: количество элементов должно быть положительным числом. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (n <= 0);
+
+            do {
+                cout << "Введите количество элементов в каждом сочетании: ";
+                cin >> k;
+                if (k <= 0 || k > n) {
+                    cout << "Ошибка: количество элементов в каждом сочетании должно быть положительным числом и не больше, чем общее количество элементов. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (k <= 0 || k > n);
+
+            cout << "Количество сочетаний без повторений: " << CombinationWithoutRep(n, k) << endl << endl;
             break;
         }
         case 5: {
-            RepeatedCombination();
+            system("cls");
+            do {
+                cout << "Введите количество элементов, которые нужно переставить: ";
+                cin >> n;
+                if (n <= 0) {
+                    cout << "Ошибка: количество элементов должно быть положительным числом. Попробуйте ещё раз!" << endl << endl;
+                }
+            } while (n <= 0);
+
+            cout << "Количество перестановок с повторениями: " << RepeatedCombination(n) << endl << endl;
             break;
         }
         case 0:
-            cout << "Выход..." << endl;
             break;
         default:
-            cout << "Неверный ввод. Попробуйте ещё раз" << endl;
+            system("cls");
+            cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
             break;
         }
     } while (choice != 0);
-}
-
-void PermutationWithRep() {
-    cout << "Размещение с повторениями\n" << endl; // Авдеенко
-}
-
-void PermutationmWithoutRep() {
-    cout << "Размещение без повторений\n" << endl; // Авдеенко
-}
-
-void CombinationWithRep() {
-    cout << "Сочетание с повтрениями\n" << endl; // Авдеенко
-}
-
-void CombinationWithoutRep() {
-    cout << "Сочетание без повтрений\n" << endl; // Авдеенко
-}
-
-void RepeatedCombination() {
-    cout << "Перестановки\n" << endl; // Авдеенко
+    {
+        return;
+    }
 }

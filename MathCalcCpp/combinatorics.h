@@ -2,7 +2,7 @@
 
 void menuComb();
 void PermutationWithRep();
-void PermutationmWithoutRep();
+void PermutationWithoutRep();
 void CombinationWithRep();
 void CombinationWithoutRep();
 void RepeatedCombination();
