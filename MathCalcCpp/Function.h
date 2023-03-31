@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <math.h>
 #include <conio.h>
+#define Rl 0.001
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;

@@ -594,7 +594,7 @@ void Graph()
 // Поиск корня Y = 0 на отрезке
 void Root()
 {
-	double a = 0, b = 0, c = 0, d = 0, y;
+	double a = 0, b = 0, c = 0, d = 0, y, xres = 0;
 	int Func, N;
 	double* Pol = NULL;
 	do
@@ -680,7 +680,7 @@ void Root()
 	// Поиск корня
 	if (Func != 0)
 	{
-		double Start, End, Step;
+		double Start, End, Step, StartL, EndL, StepL;
 
 		do
 		{
@@ -690,52 +690,81 @@ void Root()
 			cin >> End;
 			cout << " Введите погрешность: ";
 			cin >> Step;
+			Step = Step - 0.00000000000000001;
 			if ((End < Start) or (Step <= 0)) { cout << " Введены неверные значения" << endl; }
 		} while ((End < Start) or (Step <= 0));
 
+		EndL = End;
+		StepL = Step;
 		int k = 0;
+		double y1, y2;
 		double* Root = (double*)malloc(sizeof(double) * (k + 1));
-		for (double x = Start; x <= End; x += Step)
+		for (Start; Start <= End-Step; Start += Step)
 		{
 			switch (Func)
 			{
 			case 1:
 			{
-				y = ResPolinomialF(Pol, N, x);
+				y1 = ResPolinomialF(Pol, N, Start);
+				y2 = ResPolinomialF(Pol, N, Start+Step);
 				break;
 			}
 			case 2:
 			{
-				y = ResDegreeF(a, b, c, x);
+				y1 = ResDegreeF(a, b, c, Start);
+				y2 = ResDegreeF(a, b, c, Start + Step);
 				break;
 			}
 			case 3:
 			{
-				y = ResIndexF(a, b, c, d, x);
+				y1 = ResIndexF(a, b, c, d, Start);
+				y2 = ResIndexF(a, b, c, d, Start + Step);
 				break;
 			}
 			case 4:
 			{
-				y = ResLogF(a, b, c, x);
+				y1 = ResLogF(a, b, c, Start);
+				y2 = ResLogF(a, b, c, Start + Step);
 				break;
 			}
 			case 5:
 			{
-				y = ResSinF(a, b, c, d, x);
+				y1 = ResSinF(a, b, c, d, Start);
+				y2 = ResSinF(a, b, c, d, Start + Step);
 				break;
 			}
 			case 6:
 			{
-				y = ResCosF(a, b, c, d, x);
+				y1 = ResCosF(a, b, c, d, Start);
+				y2 = ResCosF(a, b, c, d, Start + Step);
 				break;
 			}
 			default: break;
 			}
-			if (y == 0) { Root[k] = x; k++; Root = (double*)realloc(Root, sizeof(double) * (k + 1)); }
+			if (y1 * y2 < 0)
+			{
+				End = Start + Step;
+				StartL = End;
+				Step = Step / 100;
+				xres = Start;
+			}
+			if (xres != 0) 
+			{ 
+				Root[k] = xres; 
+				k++; 
+				Root = (double*)realloc(Root, sizeof(double) * (k + 1)); 
+				xres = 0;
+				Start = StartL;
+				End = EndL;
+				Step = StepL;
+			}
 		}
 
 		if (k == 0) { cout << " Для Y = 0 корней нет" << endl; }
 		else
+		{
+
+		}
 		{
 			cout << " Корни уравнения для Y = 0: " << endl;
 			for (int l = 0; l < k; l++)
@@ -754,7 +783,7 @@ void Root()
 // Поиск экстремумов на отрезке 
 void Extreme()
 {
-	double a = 0, b = 0, c = 0, d = 0, y1, y2, y3;
+	double a = 0, b = 0, c = 0, d = 0, y1, y2, y3, xres1 = 0, xres2 = 0;
 	int Func, N;
 	double* Pol = NULL;
 	do
@@ -840,7 +869,7 @@ void Extreme()
 	// Поиск экстремумов
 	if (Func != 0)
 	{
-		double Start, End, Step;
+		double Start, End, Step, StartL, EndL, StepL;
 
 		do
 		{
@@ -853,66 +882,92 @@ void Extreme()
 			if ((End < Start) or (Step <= 0)) { cout << " Введены неверные значения" << endl; }
 		} while ((End < Start) or (Step <= 0));
 
+		EndL = End;
+		StepL = Step;
 		int k = 0, t = 0;
 		double* Root1 = (double*)malloc(sizeof(double) * (k + 1));
 		double* Root2 = (double*)malloc(sizeof(double) * (t + 1));
-		for (double x = Start + Step; x <= End - Step; x += Step)
-		{
+		for (Start+Step; Start <= End - Step; Start += Step)		{
 			switch (Func)
 			{
 			case 1:
 			{
-				y1 = ResPolinomialF(Pol, N, x - Step);
-				y2 = ResPolinomialF(Pol, N, x);
-				y3 = ResPolinomialF(Pol, N, x + Step);
+				y1 = ResPolinomialF(Pol, N, Start - Step);
+				y2 = ResPolinomialF(Pol, N, Start);
+				y3 = ResPolinomialF(Pol, N, Start + Step);
 				break;
 			}
 			case 2:
 			{
-				y1 = ResDegreeF(a, b, c, x - Step);
-				y2 = ResDegreeF(a, b, c, x);
-				y3 = ResDegreeF(a, b, c, x + Step);
+				y1 = ResDegreeF(a, b, c, Start - Step);
+				y2 = ResDegreeF(a, b, c, Start);
+				y3 = ResDegreeF(a, b, c, Start + Step);
 				break;
 			}
 			case 3:
 			{
-				y1 = ResIndexF(a, b, c, d, x - Step);
-				y2 = ResIndexF(a, b, c, d, x);
-				y3 = ResIndexF(a, b, c, d, x + Step);
+				y1 = ResIndexF(a, b, c, d, Start - Step);
+				y2 = ResIndexF(a, b, c, d, Start);
+				y3 = ResIndexF(a, b, c, d, Start + Step);
 				break;
 			}
 			case 4:
 			{
-				y1 = ResLogF(a, b, c, x - Step);
-				y2 = ResLogF(a, b, c, x);
-				y3 = ResLogF(a, b, c, x + Step);
+				y1 = ResLogF(a, b, c, Start - Step);
+				y2 = ResLogF(a, b, c, Start);
+				y3 = ResLogF(a, b, c, Start + Step);
 				break;
 			}
 			case 5:
 			{
-				y1 = ResSinF(a, b, c, d, x - Step);
-				y1 = ResSinF(a, b, c, d, x);
-				y1 = ResSinF(a, b, c, d, x + Step);
+				y1 = ResSinF(a, b, c, d, Start - Step);
+				y2 = ResSinF(a, b, c, d, Start);
+				y3 = ResSinF(a, b, c, d, Start + Step);
 				break;
 			}
 			case 6:
 			{
-				y1 = ResCosF(a, b, c, d, x - Step);
-				y2 = ResCosF(a, b, c, d, x);
-				y3 = ResCosF(a, b, c, d, x + Step);
+				y1 = ResCosF(a, b, c, d, Start - Step);
+				y2 = ResCosF(a, b, c, d, Start);
+				y3 = ResCosF(a, b, c, d, Start + Step);
 				break;
 			}
 			default: break;
 			}
 			if ((y1 < y2) and (y3 < y2))
 			{
-				Root1[k] = x; k++; Root1 = (double*)realloc(Root1, sizeof(double) * (k + 1));
+				End = Start + Step;
+				StartL = End;
+				Step = Step / 100;
+				xres1 = Start;
+			}
+			if (xres1 != 0)
+			{
+				Root1[k] = xres1; 
+				k++; 
+				Root1 = (double*)realloc(Root1, sizeof(double) * (k + 1));
+				xres1 = 0;
+				Start = StartL;
+				End = EndL;
+				Step = StepL;
 			}
 			if ((y1 > y2) and (y3 > y2))
 			{
-				Root2[t] = x; t++; Root2 = (double*)realloc(Root2, sizeof(double) * (t + 1));
+				End = Start + Step;
+				StartL = End;
+				Step = Step / 100;
+				xres2 = Start;
 			}
-
+			if (xres2 != 0)
+			{
+				Root2[t] = xres2;
+				t++;
+				Root2 = (double*)realloc(Root2, sizeof(double) * (t + 1));
+				xres2 = 0;
+				Start = StartL;
+				End = EndL;
+				Step = StepL;
+			}
 		}
 
 		if (k == 0) { cout << " Точек максимума у функции нет " << endl; }
