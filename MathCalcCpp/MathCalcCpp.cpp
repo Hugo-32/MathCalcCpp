@@ -39,9 +39,9 @@ int main(int argc, char** argv)
 		case 2:
 			menuComb();
 			break;
-		//case 3:
-		//	menuPolinom();
-		//	break;
+		case 3:
+			menuPolynomial();
+			break;
 		case 4:
 			menuProbability();
 			break;
