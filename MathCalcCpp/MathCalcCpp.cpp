@@ -18,9 +18,10 @@ int main(int argc, char** argv)
 {
 	setlocale(LC_ALL, "Rus");
 	int choice;
-
 	do
 	{
+		system("cls");
+		cout << "Главное меню калькулятор" << endl << endl;
 		cout << "1. Матричный калькулятор" << endl;
 		cout << "2. Калькулятор формул комбинаторики" << endl;
 		cout << "3. Калькулятор многочленов" << endl;
