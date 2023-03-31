@@ -138,10 +138,11 @@ void menuPolynomial()
 		cout << "5. Деление многочленов в столбик\n";
 		cout << "6. Вычисление производной от многочлена\n";
 		cout << "0. Выход в главное меню\n";
-		cout << endl << "Выберите пункт меню: " << endl;
+		cout << endl << "Выберите пункт меню: ";
 		cin >> mode;
 		switch (mode) {
 		case 1: {
+			system("cls");
 			vector<double> a = input_polynomial();
 			vector<double> b = input_polynomial();
 			vector<double> c = add_polynomials(a, b);
@@ -150,6 +151,7 @@ void menuPolynomial()
 			break;
 		}
 		case 2: {
+			system("cls");
 			vector<double> a = input_polynomial();
 			vector<double> b = input_polynomial();
 			vector<double> c = subtract_polynomials(a, b);
@@ -158,6 +160,7 @@ void menuPolynomial()
 			break;
 		}
 		case 3: {
+			system("cls");
 			vector<double> a = input_polynomial();
 			vector<double> b = input_polynomial();
 			vector<double> c = multiply_polynomials(a, b);
@@ -166,6 +169,7 @@ void menuPolynomial()
 			break;
 		}
 		case 4: {
+			system("cls");
 			vector<double> a = input_polynomial();
 			double k;
 			cout << "Введите число, на которое следует умножить многочлен: ";
@@ -176,6 +180,7 @@ void menuPolynomial()
 			break;
 		}
 		case 5: {
+			system("cls");
 			vector<double> a = input_polynomial();
 			vector<double> b = input_polynomial();
 			vector<double> quotient = div_polynomials(a, b);
@@ -188,6 +193,7 @@ void menuPolynomial()
 			break;
 		}
 		case 6: {
+			system("cls");
 			vector<double> a = input_polynomial();
 			vector<double> b = calculate_derivative(a);
 			cout << "Производная: ";
@@ -199,6 +205,7 @@ void menuPolynomial()
 			break;
 		}
 		default:
+			system("cls");
 			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl;
 			break;
 		}
