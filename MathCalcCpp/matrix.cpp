@@ -1,9 +1,7 @@
 //
-//  Matrix.cpp
-//  Цопин Е.О.
-//
-//
-//
+//  matrix.cpp
+//  Цопин Егор
+//  
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -13,7 +11,7 @@
 
 
 
-void printMatrix(Matrix a) { //TODO
+void printMatrix(Matrix a) { 
     for (int i = 0;i < a.n;i++) {
         for (int j = 0;j < a.m;j++) {
             std::cout << a.matrix[i][j] << " \t";
@@ -22,7 +20,7 @@ void printMatrix(Matrix a) { //TODO
     }
 }
 
-void getMatrix(Matrix* a) { //TODO
+void getMatrix(Matrix* a) {
     for (int i = 0;i < a->n;i++) {
         for (int j = 0;j < a->m;j++) {
             printf("Элемент[%d][%d]: ", i + 1, j + 1);
@@ -37,13 +35,14 @@ void getMatrix(Matrix* a) { //TODO
 
 
 
-void matrixAddition() { //TODO
+void matrixAddition() { 
     Matrix a;
     Matrix b;
     do {
-        std::cout << "Количество строк: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк: ";
         std::cin >> a.n;
-        std::cout << "Количество столбцов: ";
+        std::cout << "Введите количество столбцов: ";
         std::cin >> a.m;
     } while (a.n < 1 || a.m < 1);
     b.n = a.n; b.m = a.m;
@@ -59,13 +58,14 @@ void matrixAddition() { //TODO
     std::cout << "Результат: \n";
     printMatrix(a);
 }
-void matrixSubstruction() { //TODO
+void matrixSubstruction() { 
     Matrix a;
     Matrix b;
     do {
-        std::cout << "Количество строк: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк: ";
         std::cin >> a.n;
-        std::cout << "Количество столбцов: ";
+        std::cout << "Введите количество столбцов: ";
         std::cin >> a.m;
     } while (a.n < 1 || a.m < 1);
     b.n = a.n; b.m = a.m;
@@ -82,13 +82,14 @@ void matrixSubstruction() { //TODO
     printMatrix(a);
 }
 
-void matrixMultiplication() { //TODO
+void matrixMultiplication() { 
     Matrix a;
     Matrix b;
     do {
-        std::cout << "Количество строк: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк: ";
         std::cin >> a.n;
-        std::cout << "Количество столбцов: ";
+        std::cout << "Введите количество столбцов: ";
         std::cin >> a.m;
     } while (a.n < 1 || a.m < 1);
     b.n = a.n; b.m = a.m;
@@ -104,13 +105,14 @@ void matrixMultiplication() { //TODO
     std::cout << "Результат: \n";
     printMatrix(a);
 }
-void matrixNumberMultiplication() { //TODO
+void matrixNumberMultiplication() { 
     Matrix a;
     double n;
     do {
-        std::cout << "Количество строк: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк: ";
         std::cin >> a.n;
-        std::cout << "Количество столбцов: ";
+        std::cout << "Введите количество столбцов: ";
         std::cin >> a.m;
     } while (a.n < 1 || a.m < 1);
     std::cout << "Матрица: \n";
@@ -125,13 +127,14 @@ void matrixNumberMultiplication() { //TODO
     std::cout << "Результат: \n";
     printMatrix(a);
 }
-void matrixNumberAddition() {//TODO
+void matrixNumberAddition() {
     Matrix a;
     double n;
     do {
-        std::cout << "Количество строк: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк: ";
         std::cin >> a.n;
-        std::cout << "Количество столбцов: ";
+        std::cout << "Введите количество столбцов: ";
         std::cin >> a.m;
     } while (a.n < 1 || a.m < 1);
     std::cout << "Матрица: \n";
@@ -146,13 +149,14 @@ void matrixNumberAddition() {//TODO
     std::cout << "Результат: \n";
     printMatrix(a);
 }
-void matrixNumberSubstraction() {//TODO
+void matrixNumberSubstraction() {
     Matrix a;
     double n;
     do {
-        std::cout << "Количество строк: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк: ";
         std::cin >> a.n;
-        std::cout << "Количество столбцов: ";
+        std::cout << "Введите количество столбцов: ";
         std::cin >> a.m;
     } while (a.n < 1 || a.m < 1);
     std::cout << "Матрица: \n";
@@ -167,13 +171,14 @@ void matrixNumberSubstraction() {//TODO
     std::cout << "Результат: \n";
     printMatrix(a);
 }
-void matrixTrans() {//TODO
+void matrixTrans() {
     Matrix a;
     Matrix b;
     do {
-        std::cout << "Количество строк: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк: ";
         std::cin >> a.n;
-        std::cout << "Количество столбцов: ";
+        std::cout << "Введите количество столбцов: ";
         std::cin >> a.m;
     } while (a.n < 1 || a.m < 1);
     b.n = a.m; b.m = a.n;
@@ -235,13 +240,14 @@ double findD(Matrix a) {
 
 
 
-void matrixReverse() {//TODO
+void matrixReverse() {
     Matrix a;
     Matrix aT;
     Matrix minor;
     Matrix b;
     do {
-        std::cout << "Количество строк и столбцов: ";
+        std::cout << "\n";
+        std::cout << "Введите количество строк и столбцов: ";
         std::cin >> a.n;
     } while (a.n < 1);
     a.m = aT.n = aT.m = b.n = b.m = a.n;
@@ -291,10 +297,11 @@ void matrixReverse() {//TODO
     printMatrix(b);
 
 }
-void matrixD() {//TODO
+void matrixD() {
     Matrix a;
     do {
-        std::cout << "Количество строк и столбцов: ";
+        std::cout << "\n";
+        std::cout << "Ввдеите количество строк и столбцов: ";
         std::cin >> a.n;
     } while (a.n < 1);
     a.m = a.n;
@@ -307,44 +314,51 @@ void matrixD() {//TODO
 
 void matrixMenu() {
 
-
-    int c = -1;
-    std::cout << "1. Сложение матриц\n" << "2. Вычитание матриц\n" << "3. Умножение матриц\n" << "4. Умножение матрицы на число\n" << "5. Сложение матрицы и числа\n" << "6. Вычитание числа из матрицы\n" << "7. Транспонирование матрицы\n" << "8. Обратная матрица\n" << "9. Определитель матрицы\n";
+    int c;
+    system("cls");
     do {
+        std::cout << "Матричный калькулятор: \n";
+        std::cout << "\n1. Сложение матриц\n" << "2. Вычитание матриц\n" << "3. Умножение матриц\n" << "4. Умножение матрицы на число\n" << "5. Сложение матрицы и числа\n" << "6. Вычитание числа из матрицы\n" << "7. Транспонирование матрицы\n" << "8. Обратная матрица\n" << "9. Определитель матрицы\n" << "0. Вернуться назад\n";
+        std::cout << "\n";
+        std::cout << "Выбирите пункт меню: ";
         std::cin >> c;
-    } while (c < 0 || c>9);
-    switch (c) {
-    case 1:
-        matrixAddition();
-        break;
-    case 2:
-        matrixSubstruction();
-        break;
-    case 3:
-        matrixMultiplication();
-        break;
-    case 4:
-        matrixNumberMultiplication();
-        break;
-    case 5:
-        matrixNumberAddition();
-        break;
-    case 6:
-        matrixNumberSubstraction();
-        break;
-    case 7:
-        matrixTrans();
-        break;
-    case 8:
-        matrixReverse();
-        break;
-    case 9:
-        matrixD();
-        break;
+        switch (c)
+        {
+        case 1:
+            matrixAddition();
+            break;
+        case 2:
+            matrixSubstruction();
+            break;
+        case 3:
+            matrixMultiplication();
+            break;
+        case 4:
+            matrixNumberMultiplication();
+            break;
+        case 5:
+            matrixNumberAddition();
+            break;
+        case 6:
+            matrixNumberSubstraction();
+            break;
+        case 7:
+            matrixTrans();
+            break;
+        case 8:
+            matrixReverse();
+            break;
+        case 9:
+            matrixD();
+            break;
+        case 0:
+            break;
+        default:
+            std::cout << "\nОшибка: неверный пункт меню. Попробуйте ещё раз!\n";
+            break;
+        } 
+    } while (c != 0);
+    {
+        return;
     }
-    if (c != 0) {
-        getchar();getchar();
-        matrixMenu();
-    }
-
 }

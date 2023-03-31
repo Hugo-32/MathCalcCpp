@@ -1,4 +1,9 @@
-﻿#include <iostream>
+﻿//
+//  MathCalcCpp.cpp
+//  Васильев Артём
+//
+
+#include <iostream>
 #include <locale>
 #include "theoryFunctions.h"
 #include "combinatorics.h"
@@ -9,7 +14,7 @@
 
 using namespace std;
 
-int main(int argc, char** argv) // Васильев
+int main(int argc, char** argv) 
 {
 	setlocale(LC_ALL, "Rus");
 	int choice;

@@ -1,6 +1,6 @@
 //
 //  theoryFunctions.cpp
-//  Васильев А.Я.
+//  Васильев Артём
 //
 
 #include <iostream>
@@ -17,15 +17,17 @@ void menuProbability()
 	int arr[MAX_SIZE];
 	int n;
 	int choice;
-
+	system("cls");
 	do
 	{
+		cout << "Калькулятор теории вероятности и математической статистики: " << endl;
+		cout << endl;
 		cout << "1. Вычисление вероятности m/n" << endl;
 		cout << "2. Расчет дисперсии для дискретного распределения величин" << endl;
 		cout << "3. Матиматическое ожидание для дискретного распределения величин" << endl;
 		cout << "0. Вернуться назад";
 		cout << endl;
-		cout << "Выберите пункт меню: ";
+		cout << endl << "Выберите пункт меню: ";
 		cin >> choice;
 		switch (choice)
 		{
@@ -33,6 +35,7 @@ void menuProbability()
 			calculateProbability();
 			break;
 		case 2:
+			cout << endl;
 			cout << "Введите размер массива: ";
 			cin >> n;
 			cout << "Введите элементы, которые буду входить в данный массив" << endl;
@@ -44,6 +47,7 @@ void menuProbability()
 			cout << "Диспрерсия: " << calculateVariance(arr, n) << endl;;
 			break;
 		case 3:
+			cout << endl;
 			cout << "Введите размер массива: ";
 			cin >> n;
 			cout << "Введите элементы, которые буду входить в данный массив: " << endl;
@@ -55,10 +59,9 @@ void menuProbability()
 			cout << "Математическое ожидание: " << calculateMean(arr, n) << endl;
 			break;
 		case 0:
-			cout << "Выход из программы." << endl;
 			break;
 		default:
-			cout << "Ошибка: неверный пункт меню." << endl;
+			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl;
 			break;
 		}
 	} while (choice != 0);
@@ -70,6 +73,7 @@ void menuProbability()
 void calculateProbability() 
 {
 	double m, n, p, q;
+	cout << endl;
 	cout << "Введите значение для m: ";
 	cin >> m;
 	cout << "Введите значение для n: ";
@@ -82,7 +86,7 @@ void calculateProbability()
 	p = m / n;
 	q = 1 - p;
 	cout << "Вероятность: " << p << endl;
-	cout << "Дополнительная вероятность: " << q << endl << endl;
+	cout << "Дополнительная вероятность: " << q << endl;
 }
 double calculateVariance(int *arr, int n) 
 {

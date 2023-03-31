@@ -1,6 +1,6 @@
 //
-//  theoryFunctions.cpp
-//  Васильев А.Я.
+//  theoryFunctions.h
+//  Васильев Артём
 //
 
 void menuProbability();

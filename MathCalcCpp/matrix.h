@@ -2,8 +2,6 @@
 //  matrix.h
 //  Цопин Е.О.
 //
-//
-//
 
 struct Matrix {
     int n;

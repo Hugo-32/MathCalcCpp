@@ -1,4 +1,8 @@
-#pragma once
+//
+//  drobs.h
+//  Боблак Кирилл 
+//
+
 #include <iostream>
 #include <stdlib.h>
 #include <locale>

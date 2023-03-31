@@ -1,12 +1,6 @@
 //
 //  polynomial_calculator.h
-//  Меркулов Н.С.
+//  Меркулов Николай
 //
 
-#pragma once
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-void menuPolynomial();
+void menuPolinom();
