@@ -1,8 +1,3 @@
-//
-//  Functions.cpp
-//  Боблак Кирилл 
-//
-
 #define _CRT_SECURE_NO_WARNINGS
 #include "Function.h"
 
@@ -15,15 +10,16 @@ void Function()
 	system("cls");
 	do
 	{
-		cout << "Калькулятор для работы с функциями" << endl << endl
-			<< "Список операций:" << endl
-			<< "1. Вычисление определенного интеграла на отрезке " << endl
-			<< "2. Построение графика функции " << endl
-			<< "3. Поиск корня Y = 0 на отрезке " << endl
-			<< "4. Поиск экстремумов на отрезке " << endl
-			<< "0. Выход в главное меню " << endl
-			<< endl << "Выберите пункт меню: ";
+		cout << " Список операций:" << endl
+			<< " 1. Вычисление определенного интеграла на отрезке " << endl
+			<< " 2. Построение графика функции " << endl
+			<< " 3. Поиск корня Y = 0 на отрезке " << endl
+			<< " 4. Поиск экстремумов на отрезке " << endl
+			<< " 0. Выход " << endl
+			<< endl << " Выберите операцию : ";
 		cin >> n;
+
+		if ((n < 0) or (n > 4)) { cout << "  Введено неверное значение" << endl << endl; }
 
 		system("cls");
 		cin.get();
@@ -33,26 +29,16 @@ void Function()
 		case 2: {Graph(); break; }
 		case 3: {Root(); break; }
 		case 4: {Extreme(); break; }
-		case 0:
-		{
-			break;
-		}
-		default: 
-			system("cls");
-			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
-			break;
+		default: break;
 		}
 	} while (n != 0);
-	{
-		return;
-	}
 }
 
 
 //Функции на ввод параметров
 
 // Полином степени N 
-void Polinomial(double* Pol, int &N)
+void Polinomial(double* Pol, int& N)
 {
 	for (int i = 0; i <= N; i++)
 	{
@@ -144,7 +130,7 @@ void CosF(double& a, double& b, double& c, double& d)
 double ResPolinomialF(const double* Pol, const int& N, const double& x)
 {
 	double y = 0;
-	int k=0;
+	int k = 0;
 	for (int i = 0; i <= N; i++)
 	{
 		y += Pol[i] * pow(x, k);
@@ -165,7 +151,7 @@ double ResDegreeF(const double& a, const double& b, const double& c, const doubl
 double ResIndexF(const double& a, const double& b, const double& c, const double& d, const double& x)
 {
 	double y = 0;
-	y = a * pow(b, (c*x)) + d;
+	y = a * pow(b, (c * x)) + d;
 	return y;
 }
 
@@ -204,18 +190,20 @@ void DefIntegral()
 	double* Pol = NULL;
 	do
 	{
-		cout << "Построение графика функции " << endl
-			<< "==============================" << endl;
-		cout << "Список обрабатываемых функций:" << endl << endl
-			<< "1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
-			<< "2. Степенная: a*x^b + c " << endl
-			<< "3. Показательная: a*b^(c*x) + d " << endl
-			<< "4. Логарифмическая: a*ln(b*x) + c " << endl
-			<< "5. Синусоида: a*sin(b*x + c) + d " << endl
-			<< "6. Косинусоида: a*cos(b*x + c) + d " << endl
-			<< "0. Вернуться назад " << endl
-			<< endl << "Выберите функцию: ";
+		cout << " Построение графика функции " << endl
+			<< " ==============================" << endl;
+		cout << " Список обрабатываемых функций:" << endl
+			<< " 1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
+			<< " 2. Степенная: a*x^b + c " << endl
+			<< " 3. Показательная: a*b^(c*x) + d " << endl
+			<< " 4. Логарифмическая: a*ln(b*x) + c " << endl
+			<< " 5. Синусоида: a*sin(b*x + c) + d " << endl
+			<< " 6. Косинусоида: a*cos(b*x + c) + d " << endl
+			<< " 0. Выход " << endl
+			<< endl << " Выберите функцию: ";
 		cin >> Func;
+
+		if ((Func < 0) or (Func > 6)) { cout << " Введено неверное значение" << endl << endl; }
 
 		cin.get();
 		switch (Func)
@@ -275,18 +263,10 @@ void DefIntegral()
 			CosF(a, b, c, d);
 			break;
 		}
-		case 0: 
-		{ 
-			system("cls"); 
-			break; }
-		default:
-			system("cls");
-			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
-			break;
+		case 0: { system("cls"); break; }
+		default: break;
 		}
-	} while (Func != 0); {
-		return;
-	}
+	} while (Func < 0);
 
 	// Само вычисление интеграла
 	if (Func != 0)
@@ -315,18 +295,20 @@ void Graph()
 	double* Pol = NULL;
 	do
 	{
-		cout << "Построение графика функции " << endl
-			<< "==============================" << endl;
-		cout << "Список обрабатываемых функций:" << endl << endl
-			<< "1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
-			<< "2. Степенная: a*x^b + c " << endl
-			<< "3. Показательная: a*b^(c*x) + d " << endl
-			<< "4. Логарифмическая: a*ln(b*x) + c " << endl
-			<< "5. Синусоида: a*sin(b*x + c) + d " << endl
-			<< "6. Косинусоида: a*cos(b*x + c) + d " << endl
-			<< "0. Вернуться назад " << endl
-			<< endl << "Выберите функцию: ";
+		cout << " Построение графика функции " << endl
+			<< " ==============================" << endl;
+		cout << " Список обрабатываемых функций:" << endl
+			<< " 1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
+			<< " 2. Степенная: a*x^b + c " << endl
+			<< " 3. Показательная: a*b^(c*x) + d " << endl
+			<< " 4. Логарифмическая: a*ln(b*x) + c " << endl
+			<< " 5. Синусоида: a*sin(b*x + c) + d " << endl
+			<< " 6. Косинусоида: a*cos(b*x + c) + d " << endl
+			<< " 0. Выход " << endl
+			<< endl << " Выберите функцию: ";
 		cin >> Func;
+
+		if ((Func < 0) or (Func > 6)) { cout << " Введено неверное значение" << endl << endl; }
 
 		cin.get();
 		switch (Func)
@@ -334,15 +316,15 @@ void Graph()
 		case 1:
 		{
 			system("cls");
-			cout << "Полином степени N" << endl
-				<< "===================" << endl;
+			cout << " Полином степени N" << endl
+				<< " ===================" << endl;
 			do
 			{
 				cout << " Введите степень полинома (N>=0): ";
 				cin >> N;
 				if (N < 0) { cout << " Введено неверное значение " << endl; }
 			} while (N < 0);
-			Pol = (double*)malloc(sizeof(double) * (N+1));
+			Pol = (double*)malloc(sizeof(double) * (N + 1));
 			Polinomial(Pol, N);
 			break;
 		}
@@ -387,15 +369,9 @@ void Graph()
 			break;
 		}
 		case 0: { system("cls"); break; }
-		default: 
-			system("cls");
-			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl;
-			break;
+		default: break;
 		}
-	} while (Func != 0);
-	{
-		return;
-	}
+	} while (Func < 0);
 
 	// Построение графика функции
 	if (Func != 0)
@@ -577,7 +553,7 @@ void Graph()
 						if (double(x0 - Point[t].x) == 0) { Point[t].y = SCREEN_HEIGHT * 2; }
 						else
 						{
-							Point[t].y = int((double)y0 - ResLogF(a, b, c, double(Point[t].x - x0) / (double)Step) * Step); 
+							Point[t].y = int((double)y0 - ResLogF(a, b, c, double(Point[t].x - x0) / (double)Step) * Step);
 						}
 						break;
 					}
@@ -623,18 +599,20 @@ void Root()
 	double* Pol = NULL;
 	do
 	{
-		cout << "Построение графика функции " << endl
-			<< "==============================" << endl;
-		cout << "Список обрабатываемых функций:" << endl
-			<< "1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
-			<< "2. Степенная: a*x^b + c " << endl
-			<< "3. Показательная: a*b^(c*x) + d " << endl
-			<< "4. Логарифмическая: a*ln(b*x) + c " << endl
-			<< "5. Синусоида: a*sin(b*x + c) + d " << endl
-			<< "6. Косинусоида: a*cos(b*x + c) + d " << endl
-			<< "0. Вернуться назад " << endl
-			<< endl << "Выберите функцию: ";
+		cout << " Построение графика функции " << endl
+			<< " ==============================" << endl;
+		cout << " Список обрабатываемых функций:" << endl
+			<< " 1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
+			<< " 2. Степенная: a*x^b + c " << endl
+			<< " 3. Показательная: a*b^(c*x) + d " << endl
+			<< " 4. Логарифмическая: a*ln(b*x) + c " << endl
+			<< " 5. Синусоида: a*sin(b*x + c) + d " << endl
+			<< " 6. Косинусоида: a*cos(b*x + c) + d " << endl
+			<< " 0. Выход " << endl
+			<< endl << " Выберите функцию: ";
 		cin >> Func;
+
+		if ((Func < 0) or (Func > 6)) { cout << " Введено неверное значение" << endl << endl; }
 
 		cin.get();
 		switch (Func)
@@ -695,15 +673,9 @@ void Root()
 			break;
 		}
 		case 0: { system("cls"); break; }
-		default: 
-			system("cls");
-			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
-			break;
+		default: break;
 		}
-	} while (Func != 0);
-	{
-		return;
-	}
+	} while (Func < 0);
 
 	// Поиск корня
 	if (Func != 0)
@@ -727,14 +699,14 @@ void Root()
 		int k = 0;
 		double y1, y2;
 		double* Root = (double*)malloc(sizeof(double) * (k + 1));
-		for (Start; Start <= End-Step; Start += Step)
+		for (Start; Start <= End - Step; Start += Step)
 		{
 			switch (Func)
 			{
 			case 1:
 			{
 				y1 = ResPolinomialF(Pol, N, Start);
-				y2 = ResPolinomialF(Pol, N, Start+Step);
+				y2 = ResPolinomialF(Pol, N, Start + Step);
 				break;
 			}
 			case 2:
@@ -776,11 +748,11 @@ void Root()
 				Step = Step / 100;
 				xres = Start;
 			}
-			if (xres != 0) 
-			{ 
-				Root[k] = xres; 
-				k++; 
-				Root = (double*)realloc(Root, sizeof(double) * (k + 1)); 
+			if (xres != 0)
+			{
+				Root[k] = xres;
+				k++;
+				Root = (double*)realloc(Root, sizeof(double) * (k + 1));
 				xres = 0;
 				Start = StartL;
 				End = EndL;
@@ -816,19 +788,20 @@ void Extreme()
 	double* Pol = NULL;
 	do
 	{
-		cout << "Построение графика функции " << endl
-			<< "==============================" << endl;
-		cout << "Список обрабатываемых функций:" << endl
-			<< "1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
-			<< "2. Степенная: a*x^b + c " << endl
-			<< "3. Показательная: a*b^(c*x) + d " << endl
-			<< "4. Логарифмическая: a*ln(b*x) + c " << endl
-			<< "5. Синусоида: a*sin(b*x + c) + d " << endl
-			<< "6. Косинусоида: a*cos(b*x + c) + d " << endl
-			<< "0. Вернуться назад " << endl
-			<< endl << "Выберите функцию: ";
+		cout << " Построение графика функции " << endl
+			<< " ==============================" << endl;
+		cout << " Список обрабатываемых функций:" << endl
+			<< " 1. Полином степени N: a0 + a1*x + a2*x^2 +...+ aN*x^n " << endl
+			<< " 2. Степенная: a*x^b + c " << endl
+			<< " 3. Показательная: a*b^(c*x) + d " << endl
+			<< " 4. Логарифмическая: a*ln(b*x) + c " << endl
+			<< " 5. Синусоида: a*sin(b*x + c) + d " << endl
+			<< " 6. Косинусоида: a*cos(b*x + c) + d " << endl
+			<< " 0. Выход " << endl
+			<< endl << " Выберите функцию: ";
 		cin >> Func;
 
+		if ((Func < 0) or (Func > 6)) { cout << " Введено неверное значение" << endl << endl; }
 
 		cin.get();
 		switch (Func)
@@ -889,15 +862,9 @@ void Extreme()
 			break;
 		}
 		case 0: { system("cls"); break; }
-		default: 
-			system("cls");
-			cout << "Ошибка: неверный пункт меню. Попробуйте ещё раз!" << endl << endl;
-			break;
+		default: break;
 		}
-	} while (Func != 0);
-	{
-		return;
-	}
+	} while (Func < 0);
 
 	// Поиск экстремумов
 	if (Func != 0)
@@ -920,7 +887,7 @@ void Extreme()
 		int k = 0, t = 0;
 		double* Root1 = (double*)malloc(sizeof(double) * (k + 1));
 		double* Root2 = (double*)malloc(sizeof(double) * (t + 1));
-		for (Start+Step; Start <= End - Step; Start += Step)		{
+		for (Start + Step; Start <= End - Step; Start += Step) {
 			switch (Func)
 			{
 			case 1:
@@ -976,8 +943,8 @@ void Extreme()
 			}
 			if (xres1 != 0)
 			{
-				Root1[k] = xres1; 
-				k++; 
+				Root1[k] = xres1;
+				k++;
 				Root1 = (double*)realloc(Root1, sizeof(double) * (k + 1));
 				xres1 = 0;
 				Start = StartL;
